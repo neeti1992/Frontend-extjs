@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<catalog>
+  <worklist>
+    <name>xyz</name>
+    <Priority>HIGH</Priority>
+    <Modality>MR</Modality>
+      <BodyScan>xy</BodyScan>
+    <ScheduledStatus>SCHEDULED</ScheduledStatus>
+    <PerformedStatus>IN_PROGRESS</PerformedStatus>
+    <StartDate>09/28/2013</StartDate>
+    <ExpiryDate>09/30/2013</ExpiryDate>
+  </worklist>
+  <worklist>
+    <name>abc</name>
+    <Priority>HIGH</Priority>
+    <Modality>MR</Modality>
+      <BodyScan>ab</BodyScan>
+    <ScheduledStatus>ARRIVED</ScheduledStatus>
+    <PerformedStatus>COMPLETED</PerformedStatus>
+    <StartDate>09/16/2013</StartDate>
+    <ExpiryDate>09/24/2013</ExpiryDate>
+  </worklist>
+  <worklist>
+    <name>pqr</name>
+    <Priority>HIGH</Priority>
+    <Modality>MR</Modality>
+      <BodyScan>pq</BodyScan>
+    <ScheduledStatus>DEPARTED</ScheduledStatus>
+    <PerformedStatus>DISCONTINUED</PerformedStatus>
+    <StartDate>09/15/2013</StartDate>
+    <ExpiryDate>09/17/2013</ExpiryDate>
+  </worklist>
+</catalog>
