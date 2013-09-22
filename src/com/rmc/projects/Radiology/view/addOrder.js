@@ -16,30 +16,39 @@ Ext.define('com.rmc.projects.Radiology.view.addOrder', {
         margin: '20 20 20 20',
         items:[ 
            {
-            xtype: 'autocompletefield',
+            xtype: 'combobox',
             id: 'addOrderPatientName',
-            width: "66%",
-            label: 'name',
-            value: '',
-            config: {
+            fieldLabel: 'Name',
+            name: 'name',
+            hideTrigger: true,
+            typeAhead:true,
+            minChars: 4,
+            loadingText: '',
+            queryMode: 'remote',
+            forceSelection: true,
+            listConfig: {
               proxy: {
                 type: 'rest', //rest call for patient search
                 method: 'GET',
                 headers: com.rmc.projects.Radiology.controller.MainController.getBasicAuthHeaders(), 
-                url: HOST + '/ws/rest/v1/raxacore/patientlist',
+                url: HOST + '/ws/rest/v1/patient?q=' + name,
                 reader: {
                   type: 'json',
                   rootProperty: 'results'
-                }
+                },[
+                    {name: 'name', type: 'string'}
+                ]
               },
               resultsHeight: 300,
               labelKey: 'name'
             }
-            x: "10%",
+            x: "-7%",
             y: ".5%",
             allowBlank: false,
-            name: 'name'
+            valueField: 'name',
+            displayField: 'name'
             }, {
+                
             xtype: 'combobox',
             fieldLabel: 'Scheduled Status',
             id: 'addOrderScheduledStatus',
@@ -127,81 +136,102 @@ Ext.define('com.rmc.projects.Radiology.view.addOrder', {
             y: 207,
             name: 'ExpiryDate'
             }, {
-            
-            xtype: 'autocompletefield',
+                
+            xtype: 'combobox',
             id: 'addOrderRefPhyName',
-            width: "85%",
-            label: 'Referring Physician Name',
-            value: '',
-            config: {
+            fieldLabel: 'Referring Physician',
+            name: 'RefPhyName',
+            hideTrigger: true,
+            typeAhead:true,
+            loadingText: '',
+            queryMode: 'remote',
+            forceSelection: true,
+            listConfig: {
               proxy: {
-                type: 'rest',//rest call for doctor
+                type: 'rest', //rest call for doctor who is user of openmrs as well
                 method: 'GET',
-                headers: com.rmc.projects.Radiology.controller.MainController.getBasicAuthHeaders(),
+                headers: com.rmc.projects.Radiology.controller.MainController.getBasicAuthHeaders(), 
                 url: HOST + '/ws/rest/v1/user?v=full',
                 reader: {
                   type: 'json',
                   rootProperty: 'results'
-                }
+                },[
+                    {name: 'username', type: 'string'}
+                ]
               },
               resultsHeight: 300,
               labelKey: 'username'
             }
-            x: "10%",
-            y: 242,
+            x: "-1.7%",
+            y: 240,
             allowBlank: false,
-            name: 'RefPhyName'
-            },   
-            {
-             xtype: 'autocompletefield',
+            valueField: 'RefPhyName',
+            displayField: 'RefPhyName'
+            },{
+                
+            xtype: 'combobox',
             id: 'addOrderPerPhyName',
-            width: "85%",
-            label: 'Performing Physician Name',
-            value: '',
-            config: {
+            fieldLabel: 'Performing Physician',
+            name: 'PerPhyName',
+            hideTrigger: true,
+            typeAhead:true,
+            loadingText: '',
+            queryMode: 'remote',
+            forceSelection: true,
+            listConfig: {
               proxy: {
-                type: 'rest',//rest call for doctor
+                type: 'rest', //rest call for doctor who is user of openmrs as well
                 method: 'GET',
-                headers: com.rmc.projects.Radiology.controller.MainController.getBasicAuthHeaders(),
+                headers: com.rmc.projects.Radiology.controller.MainController.getBasicAuthHeaders(), 
                 url: HOST + '/ws/rest/v1/user?v=full',
                 reader: {
                   type: 'json',
                   rootProperty: 'results'
-                }
+                },[
+                    {name: 'username', type: 'string'}
+                ]
               },
               resultsHeight: 300,
               labelKey: 'username'
             }
-              allowBlank: false,
-              x: "10%",
-             y: 276,
-            name: 'PerPhyName'
+            x: "-1.7%",
+            y: 275,
+            allowBlank: false,
+            valueField: 'PerPhyName',
+            displayField: 'PerPhyName'
             }, {
             
-             xtype: 'autocompletefield',
+            xtype: 'combobox',
             id: 'addOrderReadPhyName',
-            width: "85%",
-            label: 'Reading Physician Name',
-            value: '',
-            config: {
+            fieldLabel: 'Reading Physician',
+            name: 'ReadPhyName',
+            hideTrigger: true,
+            typeAhead:true,
+            loadingText: '',
+            queryMode: 'remote',
+            forceSelection: true,
+            listConfig: {
               proxy: {
-                type: 'rest',//rest call for doctor
+                type: 'rest', //rest call for doctor who is user of openmrs as well
                 method: 'GET',
-                headers: com.rmc.projects.Radiology.controller.MainController.getBasicAuthHeaders(),
+                headers: com.rmc.projects.Radiology.controller.MainController.getBasicAuthHeaders(), 
                 url: HOST + '/ws/rest/v1/user?v=full',
                 reader: {
                   type: 'json',
                   rootProperty: 'results'
-                }
+                },[
+                    {name: 'username', type: 'string'}
+                ]
               },
               resultsHeight: 300,
               labelKey: 'username'
             }
-              allowBlank: false,
-              x: "10%",
-             y: 304,
-            name: 'ReadPhyName'
-             }, {
+            x: "-1.7%",
+            y: 304,
+            allowBlank: false,
+            valueField: 'ReadPhyName',
+            displayField: 'ReadPhyName'
+            }, {
 
             xtype: 'combobox',
             fieldLabel: 'Performed Status',
