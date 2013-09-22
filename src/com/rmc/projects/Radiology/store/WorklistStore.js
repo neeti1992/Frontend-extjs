@@ -5,8 +5,9 @@ Ext.define('com.rmc.projects.Radiology.store.WorklistStore', {
     autoLoad: true,
     autoSync: true,
     proxy: {
-        type: 'rest'
-        url: HOST + '/ws/rest/v1/basicmodule/radiologystudy',                                          //after backend is done
+        type: 'rest',
+        method: 'GET',
+        url: HOST + '/ws/rest/v1/basicmodule/radiologystudy',   
         headers: com.rmc.projects.Radiology.controller.MainController.getBasicAuthHeaders(),
         reader: {
             type:'json',
