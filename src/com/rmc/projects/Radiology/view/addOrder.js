@@ -1,4 +1,3 @@
-
 Ext.define('com.rmc.projects.Radiology.view.addOrder', {
     extend: 'Ext.form.Panel',
     alias: 'widget.addOrder',
@@ -24,10 +23,10 @@ Ext.define('com.rmc.projects.Radiology.view.addOrder', {
             value: '',
             config: {
               proxy: {
-                type: 'rest',
+                type: 'rest', //rest call for patient
                 method: 'GET',
-                headers: com.rmc.projects.Radiology.controller.MainController.getBasicAuthHeaders(),
-                url: HOST + '/ws/rest/v1/patient/{name}',
+                headers: com.rmc.projects.Radiology.controller.MainController.getBasicAuthHeaders(), 
+                url: HOST + '/ws/rest/v1/patient/',
                 reader: {
                   type: 'json',
                   rootProperty: 'results'
@@ -41,17 +40,6 @@ Ext.define('com.rmc.projects.Radiology.view.addOrder', {
             allowBlank: false,
             name: 'name'
             }, {
-           /* xtype: 'button',
-            height: 20,
-            width: 50,
-            x: 200,
-            y: ".5%",
-            text: 'Find',
-            handler: function () {
-                // TO DO: rest call to search for patient
-            }
-            }, {*/
-
             xtype: 'combobox',
             fieldLabel: 'Scheduled Status',
             id: 'addOrderScheduledStatus',
@@ -74,7 +62,6 @@ Ext.define('com.rmc.projects.Radiology.view.addOrder', {
             fieldLabel: 'Modality',
             id: 'addOrderModality',
              allowBlank: false,
-             typeAhead: true,
              x: "-6.6%",
             y: "17%",
             typeAhead: true,
@@ -108,7 +95,6 @@ Ext.define('com.rmc.projects.Radiology.view.addOrder', {
              typeAhead: true,
              x: "-10%",
             y: "31%",
-             typeAhead: true,
             queryMode: 'local',
             forceSelection: true,
             listConfig: {
@@ -149,34 +135,23 @@ Ext.define('com.rmc.projects.Radiology.view.addOrder', {
             value: '',
             config: {
               proxy: {
-                type: 'rest',
+                type: 'rest',//rest call for doctor
                 method: 'GET',
                 headers: com.rmc.projects.Radiology.controller.MainController.getBasicAuthHeaders(),
-                url: HOST + '/ws/rest/v1/user/person/{givenName}',
+                url: HOST + '/ws/rest/v1/user?v=full',
                 reader: {
                   type: 'json',
                   rootProperty: 'results'
                 }
               },
               resultsHeight: 300,
-              labelKey: 'givenName'
+              labelKey: 'username'
             }
             x: "10%",
             y: 242,
             allowBlank: false,
             name: 'RefPhyName'
-            },    
-            /*{
-            xtype: 'button',
-            height: 20,
-            width: 50,
-            text: 'Find',
-            x: "81%",
-            y: 245,
-            handler: function () {
-                // TO DO: rest call to search for doctors
-            }
-            }*/
+            },   
             {
              xtype: 'autocompletefield',
             id: 'addOrderPerPhyName',
@@ -185,17 +160,17 @@ Ext.define('com.rmc.projects.Radiology.view.addOrder', {
             value: '',
             config: {
               proxy: {
-                type: 'rest',
+                type: 'rest',//rest call for doctor
                 method: 'GET',
                 headers: com.rmc.projects.Radiology.controller.MainController.getBasicAuthHeaders(),
-                url: HOST + '/ws/rest/v1/user/person/{givenName}',
+                url: HOST + '/ws/rest/v1/user?v=full',
                 reader: {
                   type: 'json',
                   rootProperty: 'results'
                 }
               },
               resultsHeight: 300,
-              labelKey: 'givenName'
+              labelKey: 'username'
             }
               allowBlank: false,
               x: "10%",
@@ -210,17 +185,17 @@ Ext.define('com.rmc.projects.Radiology.view.addOrder', {
             value: '',
             config: {
               proxy: {
-                type: 'rest',
+                type: 'rest',//rest call for doctor
                 method: 'GET',
                 headers: com.rmc.projects.Radiology.controller.MainController.getBasicAuthHeaders(),
-                url: HOST + '/ws/rest/v1/user/person/{givenName}',
+                url: HOST + '/ws/rest/v1/user?v=full',
                 reader: {
                   type: 'json',
                   rootProperty: 'results'
                 }
               },
               resultsHeight: 300,
-              labelKey: 'givenName'
+              labelKey: 'username'
             }
               allowBlank: false,
               x: "10%",
