@@ -23,10 +23,10 @@ Ext.define('com.rmc.projects.Radiology.view.addOrder', {
             value: '',
             config: {
               proxy: {
-                type: 'rest', //rest call for patient
+                type: 'rest', //rest call for patient search
                 method: 'GET',
                 headers: com.rmc.projects.Radiology.controller.MainController.getBasicAuthHeaders(), 
-                url: HOST + '/ws/rest/v1/patient/',
+                url: HOST + '/ws/rest/v1/raxacore/patientlist',
                 reader: {
                   type: 'json',
                   rootProperty: 'results'
