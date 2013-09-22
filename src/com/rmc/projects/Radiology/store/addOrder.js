@@ -8,6 +8,7 @@ Ext.define('com.rmc.projects.Radiology.store.addOrder', {
         model: 'com.rmc.projects.Radiology.model.addOrder',
         proxy: {
             type: 'rest',
+            method: 'POST'
             headers: com.rmc.projects.Radiology.controller.MainController.getBasicAuthHeaders(),
             url: HOST + '/ws/rest/v1/basicmodule/radiologystudy',
             reader: {
