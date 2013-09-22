@@ -1,18 +1,6 @@
 /*
  * Copyright 2013, Raxa
  *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
- * 
  * This file lists all the models, views, & stores. Also listed are methods and event handlers.
  */
 Ext.define('com.rmc.projects.Radiology.controller.MainController', {
@@ -28,10 +16,10 @@ Ext.define('com.rmc.projects.Radiology.controller.MainController', {
     ],
 
     stores: ['com.rmc.projects.Radiology.store.ScheduledStatus','com.rmc.projects.Radiology.store.PerformedStatus','com.rmc.projects.Radiology.store.Modality','com.rmc.projects.Radiology.store.Priority',
-    'com.rmc.projects.Radiology.store.WorklistStore'],
+    'com.rmc.projects.Radiology.store.WorklistStore','com.rmc.projects.Radiology.store.addOrder'],
 
     models: ['com.rmc.projects.Radiology.model.WorklistModel','com.rmc.projects.Radiology.store.Modality','com.rmc.projects.Radiology.store.ScheduledStatus',
-    'com.rmc.projects.Radiology.model.PerformedStatus','com.rmc.projects.Radiology.model.Priority'],
+    'com.rmc.projects.Radiology.model.PerformedStatus','com.rmc.projects.Radiology.model.Priority',,'com.rmc.projects.Radiology.model.addOrder'],
     // --------------------------------------
     // Constructor
     // --------------------------------------
@@ -79,7 +67,7 @@ Ext.define('com.rmc.projects.Radiology.controller.MainController', {
     },
     
     submitNewOrder: function() {
-            Ext.getCmp('addOrder').hide();  //To Do: modify following code once backend is done
+            Ext.getCmp('addOrder').hide();  
         Ext.getCmp('mainArea').getLayout().setActiveItem(0);
         this.saveOrder();
     
